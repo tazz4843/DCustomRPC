@@ -89,15 +89,14 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # The current_dir folder for DCustomRPC.
 
 
+# Tries to show a error.
 def try_show_error_box(exception):
-    try:
+    if tk:
         root = tk.Tk()
         root.withdraw()
         messagebox.showerror(
-            "DCustomRPC", "{}".format(exception))
-    except BaseException:
-        pass
-# Tries to show a error.
+            "DCustomRPC", "{}".format(exception)
+        )
 
 
 def listening_sleeper(_time):
