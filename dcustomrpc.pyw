@@ -259,6 +259,7 @@ class TrayIcon(threading.Thread):
 
 
 # Flushes the log every 15 minutes.
+def flush_log_every_15_minutes():
     while True:
         time.sleep(900)
         log_stream.truncate(0)
@@ -270,7 +271,7 @@ if __name__ == '__main__':
     tray.start()
 
     threading.Thread(
-        target=flush_log_every_15_mins,
+        target=flush_log_every_15_minutes,
         daemon=True
     ).start()
 
