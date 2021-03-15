@@ -85,8 +85,8 @@ logger = logging.getLogger("dcustomrpc")
 # Sets the logger.
 
 
-root = os.path.dirname(os.path.abspath(__file__))
-# The root folder for DCustomRPC.
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# The current_dir folder for DCustomRPC.
 
 
 def try_show_error_box(exception):
