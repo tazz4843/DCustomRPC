@@ -3,7 +3,6 @@ import time
 import pypresence
 import ruamel.yaml
 import os
-import sys
 import logging
 import threading
 import webbrowser
