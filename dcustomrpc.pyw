@@ -202,17 +202,18 @@ def main():
 
 
 class TrayIcon(threading.Thread):
+    # Initialises the thread.
     def __init__(self):
         super().__init__()
         self.daemon = True
-    # Initialises the thread.
 
+    # Exits the application.
     @staticmethod
     def exit_app():
         global cycle
         cycle = False
-    # Exits the application.
 
+    # Displays logs from the past 15 minutes.
     @staticmethod
     def display_logs():
         post = requests.post(
@@ -223,8 +224,8 @@ class TrayIcon(threading.Thread):
             "https://hastebin.com/" +
             post.json()["key"] + ".txt"
         )
-    # Displays logs from the past 15 mins.
 
+    # The main function.
     def main_function(self):
         image = Image.open(current_dir + "/logo.ico")
 
@@ -246,22 +247,20 @@ class TrayIcon(threading.Thread):
             tray_icon.visible = True
 
         tray_icon.run(setup)
-    # The main function.
 
+    # Tries to launch the task tray.
     def run(self):
         try:
             self.main_function()
         except BaseException:
             pass
-    # Tries to launch the task tray.
 
 
-def flush_log_every_15_mins():
+# Flushes the log every 15 minutes.
     while True:
         time.sleep(900)
         log_stream.truncate(0)
         log_stream.seek(0)
-# Flushes the log every 15 mins.
 
 
 if __name__ == '__main__':
