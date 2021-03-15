@@ -172,7 +172,14 @@ def main():
     )
 
     logger.info("Connecting the client.")
-    client.connect()
+    while True:
+        try:
+            client.connect()
+        except Exception as e:
+            logger.exception("Failed to connect! Waiting 5 seconds.", exc_info=e)
+            time.sleep(5)
+        else:
+            break
 
     try:
         games = game_cycle.get("games", [
