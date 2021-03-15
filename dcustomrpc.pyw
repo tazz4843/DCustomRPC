@@ -132,7 +132,7 @@ def main():
     logger.addHandler(log)
 
     logger.info("Loading the config.")
-    config = load_config(root + "/config.yaml")
+    config = load_config(current_dir + "/config.yaml")
 
     try:
         client_id = config.client_id
@@ -217,7 +217,7 @@ class TrayIcon(threading.Thread):
     # Displays logs from the past 15 mins.
 
     def main_function(self):
-        image = Image.open(root + "/logo.ico")
+        image = Image.open(current_dir + "/logo.ico")
 
         menu = pystray.Menu(
             pystray.MenuItem(
