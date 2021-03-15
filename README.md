@@ -40,7 +40,7 @@ The config should be fairly easy to setup:
 ## Useful Links
 [Python 3.6.6](https://www.python.org/downloads/release/python-366/) 
 
-[Repo Download: Stable](https://github.com/JakeMakesStuff/DCustomRPC/archive/master.zip) 
+[Repo Download: Stable](https://github.com/tazz4843/DCustomRPC/archive/master.zip) 
 
 ## Discord prerequisites:
 Please make sure that game statuses are turned on:
