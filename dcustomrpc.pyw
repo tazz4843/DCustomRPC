@@ -10,19 +10,19 @@ import requests
 from io import StringIO
 # Imports go here.
 
+# Imports tkinter if it can.
 try:
     import tkinter as tk
     from tkinter import messagebox
 except ImportError:
-    pass
-# Imports tkinter if it can.
+    tk = messagebox = None
 
+# Tries to import PIL and pystray.
 try:
     import pystray
     from PIL import Image
 except ImportError:
-    pass
-# Tries to import PIL and pystray.
+    pystray = Image = None
 
 cycle = True
 # Sets whether we are cycling games.
