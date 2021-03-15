@@ -113,6 +113,19 @@ def listening_sleeper(_time):
 # Listens and sleeps.
 
 
+def connect_client(client: pypresence.Presence):
+    logger.info("Connecting the client.")
+    while True:
+        try:
+            client.connect()
+        except Exception as e:
+            logger.exception("Failed to connect! Waiting 5 seconds.", exc_info=e)
+            time.sleep(5)
+        else:
+            logger.info("Connected!")
+            break
+
+
 log_stream = StringIO()
 # The stream of the logger.
 
@@ -171,16 +184,7 @@ def main():
         pipe=0
     )
 
-    logger.info("Connecting the client.")
-    while True:
-        try:
-            client.connect()
-        except Exception as e:
-            logger.exception("Failed to connect! Waiting 5 seconds.", exc_info=e)
-            time.sleep(5)
-        else:
-            logger.info("Connected!")
-            break
+    connect_client(client)
 
     games = game_cycle.get("games", [
         {
@@ -201,6 +205,14 @@ def main():
                 listening_sleeper(time_until_cycle)
             except TypeError as e:
                 logger.exception("The game is formatted wrong.", exc_info=e)
+            except BrokenPipeError:
+                logger.error("Discord has been quit! Reopening client.")
+                client.close()
+                client = pypresence.Presence(
+                    client_id,
+                    pipe=0
+                )
+                connect_client(client)
             except Exception as e:
                 try_show_error_box(e)
                 logger.exception("Failed to update game! Waiting 5 seconds.", exc_info=e)
