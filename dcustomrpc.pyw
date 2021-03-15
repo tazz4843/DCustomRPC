@@ -131,6 +131,7 @@ log_stream = StringIO()
 # The stream of the logger.
 
 
+# The main script that is executed.
 def main():
     logging.basicConfig(
         level=logging.INFO
@@ -220,7 +221,6 @@ def main():
                 time.sleep(5)
 
     client.close()
-# The main script that is executed.
 
 
 class TrayIcon(threading.Thread):
