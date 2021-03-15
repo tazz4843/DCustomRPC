@@ -155,6 +155,15 @@ def main():
             ]
         }
 
+    if config.enable_tray_icon:
+        tray = TrayIcon()
+        tray.start()
+
+    if not config.enable_gui:
+        global tk
+        global messagebox
+        tk = messagebox = None
+
     client = pypresence.Presence(
         client_id,
         pipe=0
