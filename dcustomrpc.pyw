@@ -194,10 +194,10 @@ def main():
                     logger.error("The game is formatted wrong.")
 
         client.close()
-    except BaseException as e:
+    except Exception as e:
         try_show_error_box(e)
         logger.exception(e)
-        sys.exit(1)
+        # ignore and pass
 # The main script that is executed.
 
 
