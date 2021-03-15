@@ -182,32 +182,30 @@ def main():
             logger.info("Connected!")
             break
 
-    try:
-        games = game_cycle.get("games", [
-                {
-                    "state": "No cycle found.",
-                    "details": "Nothing to cycle."
-                }
-        ])
-        time_until_cycle = game_cycle.get(
-            "time_until_cycle", 10)
-        while cycle:
-            for game in games:
-                if not cycle:
-                    break
+    games = game_cycle.get("games", [
+        {
+            "state": "No cycle found.",
+            "details": "Nothing to cycle."
+        }
+    ])
+    time_until_cycle = game_cycle.get(
+        "time_until_cycle", 10)
+    while cycle:
+        for game in games:
+            if not cycle:
+                break
 
-                try:
-                    client.update(**game)
-                    logger.info("Changed the game.")
-                    listening_sleeper(time_until_cycle)
-                except TypeError:
-                    logger.error("The game is formatted wrong.")
+            try:
+                client.update(**game)
+                logger.info("Changed the game.")
+                listening_sleeper(time_until_cycle)
+            except TypeError as e:
+                logger.exception("The game is formatted wrong.", exc_info=e)
+            except Exception as e:
+                try_show_error_box(e)
+                logger.exception("Failed to update game!", exc_info=e)
 
-        client.close()
-    except Exception as e:
-        try_show_error_box(e)
-        logger.exception(e)
-        # ignore and pass
+    client.close()
 # The main script that is executed.
 
 
