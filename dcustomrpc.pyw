@@ -203,7 +203,8 @@ def main():
                 logger.exception("The game is formatted wrong.", exc_info=e)
             except Exception as e:
                 try_show_error_box(e)
-                logger.exception("Failed to update game!", exc_info=e)
+                logger.exception("Failed to update game! Waiting 5 seconds.", exc_info=e)
+                time.sleep(5)
 
     client.close()
 # The main script that is executed.
