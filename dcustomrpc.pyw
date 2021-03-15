@@ -267,9 +267,6 @@ def flush_log_every_15_minutes():
 
 
 if __name__ == '__main__':
-    tray = TrayIcon()
-    tray.start()
-
     threading.Thread(
         target=flush_log_every_15_minutes,
         daemon=True
