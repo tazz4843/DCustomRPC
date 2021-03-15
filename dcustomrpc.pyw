@@ -175,11 +175,13 @@ def main():
         tray.start()
 
     if not config.enable_gui:
+        logger.info("Disabling GUI.")
         # noinspection PyGlobalUndefined
         global tk
         # noinspection PyGlobalUndefined
         global messagebox
         tk = messagebox = None
+        logger.info("Disabled GUI.")
 
     client = pypresence.Presence(
         client_id,
