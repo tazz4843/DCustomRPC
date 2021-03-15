@@ -120,6 +120,7 @@ def connect_client(client: pypresence.Presence):
             client.connect()
         except Exception as e:
             logger.exception("Failed to connect! Waiting 5 seconds.", exc_info=e)
+            try_show_error_box(e)
             time.sleep(5)
         else:
             logger.info("Connected!")
