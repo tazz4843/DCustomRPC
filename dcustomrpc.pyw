@@ -205,7 +205,7 @@ def main():
                 listening_sleeper(time_until_cycle)
             except TypeError as e:
                 logger.exception("The game is formatted wrong.", exc_info=e)
-            except BrokenPipeError:
+            except (BrokenPipeError, pypresence.InvalidID):
                 logger.error("Discord has been quit! Reopening client.")
                 client.close()
                 client = pypresence.Presence(
