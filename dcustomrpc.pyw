@@ -68,13 +68,13 @@ def load_config(config_location: str):
         raise ConfigOpenError(
             "The YAML config seems to be malformed."
         )
-    except IOError:
-        raise ConfigOpenError(
-            "Could not open the config file."
-        )
     except FileNotFoundError:
         raise ConfigNotFound(
             "Could not find the config."
+        )
+    except IOError:
+        raise ConfigOpenError(
+            "Could not open the config file."
         )
 
     return dict2class(loaded_file)
