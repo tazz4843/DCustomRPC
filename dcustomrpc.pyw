@@ -179,6 +179,7 @@ def main():
             logger.exception("Failed to connect! Waiting 5 seconds.", exc_info=e)
             time.sleep(5)
         else:
+            logger.info("Connected!")
             break
 
     try:
