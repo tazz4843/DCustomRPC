@@ -3,32 +3,75 @@
 # -----------------
 # Please read the README.md before asking for support.
 
-client_id: 404026229931638784
 # The client ID of the application you made on the Discord Developers page.
+client_id: 814550660544200725
+
+# Should the tray icon be enabled?
+enable_tray_icon: true
+
+# Enable GUI? If enabled, this will result in a pop-up box when a exception happens. If Discord is closed, this can get *very* annoying, so disabled by default.
+enable_gui: false
 
 game_cycle:
-
+  # The time until the game cycles in seconds.
   time_until_cycle: 10
-  # The time until the game cycles.
 
   games:
-    -
-      details: Welcome!
-      state: I am a passionate 16 year old developer.
-      large_image: wave_large
-    -
-      details: Feel free to check out my GitHub!
-      state: https://github.com/JakeMakesStuff
-      large_image: gh_large
-      large_text: JakeMakesStuff
-    -
-      details: Powered by DCustomRPC!
-      state: This custom rich presence integration is powered by DCustomRPC.
-      large_image: discord_large
-      large_text: Search for DCustomRPC on GitHub. You'll find it.
-    -
-      details: Auttaja
-      state: Auttaja is the best Discord bot!
-      large_image: auttaja_large
-      large_text: The logo!
-  # The list of games that it will cycle through.
+    # The list of games that it will cycle through.
+    - details: "Hi there!"
+      state: "I'm 0/0! Keep a eye on this status for more info."
+      large_image: "profile_pic"
+      large_text: "This updates every 10 seconds."
+
+    - details: "Powered by DCustomRPC!"
+      state: "This custom rich presence integration is powered by DCustomRPC."
+      large_image: "discord"
+      buttons:
+        - label: "Click for link!"
+          url: "https://github.com/tazz4843/DCustomRPC"
+
+    - details: "COVID-19 Bot"
+      state: "The single best COVID-19 bot for Discord!"
+      large_image: "covid_bot"
+      large_text: "yes it is the best don't fight me here"
+      buttons:
+        - label: "Invite the Bot"
+          url: "https://covid19.imaskeleton.me/invite"
+        - label: "Support Server"
+          url: "https://discord.gg/5yXExTsRye"
+
+    - details: "@someone"
+      state: "Let's bring back Discord's 2018 April Fools!"
+      large_image: "someone"
+      large_text: "*ping noises*"
+      buttons:
+        - label: "Invite the Bot"
+          url: "https://discord.com/api/oauth2/authorize?client_id=800865331072729109&permissions=67468352&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorized&scope=bot"
+        - label: "Support Server"
+          url: "https://discord.gg/5yXExTsRye"
+
+    - details: "Scripty"
+      state: "Free speech to text for voice chats!"
+      large_image: "scripty"
+      large_text: "written in Rust, so Rust best"
+      buttons:
+        - label: "Invite the Bot"
+          url: "https://scripty.imaskeleton.me/invite"
+        - label: "Support Server"
+          url: "https://discord.gg/5yXExTsRye"
+
+    - details: "Creating Discord bots!"
+      state: "If you need a special bot, shoot me a DM."
+      large_image: "discord"
+      large_text: "prices vary from $3 to up to $45"
+      buttons:
+        - label: "Get in Touch"
+          url: "https://discord.gg/5yXExTsRye"
+
+    - details: "That's all!"
+      state: "If you want to get in touch, shoot me a DM or join my server."
+      large_image: "waving_hand"
+      large_text: "stop reading this ffs"
+      buttons:
+        - label: "My Server"
+          url: "https://discord.gg/5yXExTsRye"
