@@ -5,8 +5,6 @@ import ruamel.yaml
 import os
 import logging
 import threading
-import webbrowser
-import requests
 from io import StringIO
 # Imports go here.
 
@@ -16,13 +14,6 @@ try:
     from tkinter import messagebox
 except ImportError:
     tk = messagebox = None
-
-# Tries to import PIL and pystray.
-try:
-    import pystray
-    from PIL import Image
-except ImportError:
-    pystray = Image = None
 
 cycle = True
 # Sets whether we are cycling games.
@@ -170,10 +161,6 @@ def main():
             ]
         }
 
-    if config.enable_tray_icon:
-        tray = TrayIcon()
-        tray.start()
-
     if not config.enable_gui:
         logger.info("Disabling GUI.")
         # noinspection PyGlobalUndefined
@@ -223,63 +210,6 @@ def main():
                 time.sleep(5)
 
     client.close()
-
-
-class TrayIcon(threading.Thread):
-    # Initialises the thread.
-    def __init__(self):
-        super().__init__()
-        self.daemon = True
-
-    # Exits the application.
-    @staticmethod
-    def exit_app():
-        global cycle
-        cycle = False
-
-    # Displays logs from the past 15 minutes.
-    @staticmethod
-    def display_logs():
-        post = requests.post(
-            "https://hastebin.com/documents",
-            data=log_stream.getvalue()
-        )
-        webbrowser.open(
-            "https://hastebin.com/" +
-            post.json()["key"] + ".txt"
-        )
-
-    # The main function.
-    def main_function(self):
-        image = Image.open(current_dir + "/logo.ico")
-
-        menu = pystray.Menu(
-            pystray.MenuItem(
-                "Exit", self.exit_app
-            ),
-            pystray.MenuItem(
-                "Show Logs", self.display_logs
-            )
-        )
-
-        tray_icon = pystray.Icon(
-            "DCustomRPC", image,
-            "DCustomRPC", menu
-        )
-
-        # noinspection PyUnusedLocal
-        def setup(icon):
-            tray_icon.visible = True
-
-        tray_icon.run(setup)
-
-    # Tries to launch the task tray.
-    def run(self):
-        # noinspection PyBroadException
-        try:
-            self.main_function()
-        except Exception:
-            pass
 
 
 # Flushes the log every 15 minutes.
