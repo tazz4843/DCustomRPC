@@ -274,12 +274,7 @@ if __name__ == '__main__':
 
     try:
         main()
-    except SystemExit:
-        pass
-    except KeyboardInterrupt:
-        pass
-    except BaseException as e:
-        try_show_error_box(e)
-        logger.exception(e)
-        sys.exit(1)
+    except Exception as exc:
+        try_show_error_box(exc)
+        logger.exception(exc)
 # Starts the script.
