@@ -33,6 +33,9 @@ The config should be fairly easy to setup:
     - `small_text` - This will be the text for when you hover over the small image:
 
         ![sm_text](https://i.imgur.com/EApOnTl.png)
+    - `buttons` - A list of dicts containing buttons and their URLs. Up to two buttons can be specified.
+   
+        ![buttons](https://cdn.discordapp.com/attachments/796094479903096902/820843690796515368/unknown.png)
 
 ## Useful Links
 [Python 3.6.6](https://www.python.org/downloads/release/python-366/) 
