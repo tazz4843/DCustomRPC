@@ -160,7 +160,9 @@ def main():
         tray.start()
 
     if not config.enable_gui:
+        # noinspection PyGlobalUndefined
         global tk
+        # noinspection PyGlobalUndefined
         global messagebox
         tk = messagebox = None
 
