@@ -243,6 +243,7 @@ class TrayIcon(threading.Thread):
             "DCustomRPC", menu
         )
 
+        # noinspection PyUnusedLocal
         def setup(icon):
             tray_icon.visible = True
 
@@ -250,9 +251,10 @@ class TrayIcon(threading.Thread):
 
     # Tries to launch the task tray.
     def run(self):
+        # noinspection PyBroadException
         try:
             self.main_function()
-        except BaseException:
+        except Exception:
             pass
 
 
