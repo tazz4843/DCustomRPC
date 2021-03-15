@@ -56,7 +56,6 @@ def dict2class(_dict: dict):
 
 
 def load_config(config_location: str):
-
     if not os.path.isfile(config_location):
         raise ConfigNotFound(
             "Could not find the config."
