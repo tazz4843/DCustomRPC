@@ -19,6 +19,9 @@ game_cycle:
       state: "I'm 0/0! Keep a eye on this status for more info."
       large_image: "profile_pic"
       large_text: "This updates every 10 seconds."
+      buttons:
+        - label: "My Website"
+          url: "https://imaskeleton.me"
 
     - details: "Powered by DCustomRPC!"
       state: "This custom rich presence integration is powered by DCustomRPC."
@@ -64,6 +67,11 @@ game_cycle:
       buttons:
         - label: "Get in Touch"
           url: "https://discord.gg/5yXExTsRye"
+
+    - details: "monke"
+      state: "DM for the chance to win a IRL monke"
+      large_image: "monkey"
+      large_text: "monke"
 
     - details: "That's all!"
       state: "If you want to get in touch, shoot me a DM or join my server."
