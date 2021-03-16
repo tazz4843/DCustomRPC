@@ -41,6 +41,8 @@ The config should be fairly easy to setup:
 
 [Repo Download: Stable](https://github.com/tazz4843/DCustomRPC/archive/master.zip) 
 
+[Support Server](https://discord.gg/5yXExTsRye)
+
 ## Discord prerequisites:
 Please make sure that game statuses are turned on:
 
