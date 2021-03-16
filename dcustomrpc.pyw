@@ -183,10 +183,11 @@ def main():
             "details": "Nothing to cycle."
         }
     ])
+    total_games = len(games)
     time_until_cycle = game_cycle.get(
         "time_until_cycle", 10)
     while cycle:
-        for game in games:
+        for game, i in zip(games, range(total_games)):
             if not cycle:
                 break
 
