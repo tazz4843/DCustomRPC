@@ -192,8 +192,11 @@ def main():
                 break
 
             try:
-                ct = int(round(time.time()))
-                client.update(**game, party_size=[i+1, total_games], start=ct, end=ct+time_until_cycle)
+                if total_games == 1:
+                    client.update(**game)
+                else:
+                    ct = int(round(time.time()))
+                    client.update(**game, party_size=[i+1, total_games], start=ct, end=ct+time_until_cycle)
                 logger.info("Changed the game.")
                 listening_sleeper(time_until_cycle)
             except TypeError as e:
