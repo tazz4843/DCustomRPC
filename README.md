@@ -61,4 +61,4 @@ In order to check everything is working in the command line, you can run `py dcu
 Add `python3 /path/to/dcustomrpc.pyw &` to `/etc/rc.local`. Don't forget the `&` at the end of the line otherwise your system will not boot!
 ### Windows
 
-On Windows to set this to start on boot, simply take the `dcustomrpc.pyw`, right click it, hover over "Send to" then click "Desktop (create shortcut)". Then cut the icon from your desktop, go to `shell:startup` in Windows Explorer and paste it in there.
+I don't run Winshit, so I can't check this. If anyone has info, please make a PR!
