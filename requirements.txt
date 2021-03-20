@@ -1,5 +1,3 @@
 pypresence
-ruamel.yaml<=0.15.7
-pillow
-pystray
+ruamel.yaml
 requests
