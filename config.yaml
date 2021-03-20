@@ -11,7 +11,7 @@ enable_gui: false
 
 game_cycle:
   # The time until the game cycles in seconds.
-  time_until_cycle: 10
+  time_until_cycle: 7
 
   games:
     # The list of games that it will cycle through.
