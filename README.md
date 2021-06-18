@@ -1,5 +1,11 @@
 [![Discord](https://img.shields.io/discord/675390855716274216.svg)](https://discord.gg/5yXExTsRye)
 
+# WARNING: DCustomRPC is deprecated and will not recieve any more updates!
+
+It has been phased out in favor of a (currently WIP) rewrite to Rust that will allow for easier install without hassling with dependencies.
+
+You can view the current status of the rewrite at https://github.com/tazz4843/DCustomRPC-v2
+
 # DCustomRPC: The Rewrite!
 
 **The icon used for this project is [here](https://www.shareicon.net/logo-website-discord-887435).**
